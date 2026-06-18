@@ -1,20 +1,16 @@
 # Makefile for LaTeX paper compilation
-# Naturalizing Typological Kinds: Comparanda, Mechanisms, and Measurement
+# Expert Grammaticality Judges Are Evaluators, Not Participants
 
-# Configuration
 LATEX = xelatex
 BIBER = biber
 MAIN = main
 OUTDIR = .
 
-# Targets
-.PHONY: all clean distclean view help test
+.PHONY: all clean distclean view help
 
-# Default target: build the PDF
 all: $(MAIN).pdf
 
-# Full build sequence with bibliography
-$(MAIN).pdf: $(MAIN).tex references.bib
+$(MAIN).pdf: $(MAIN).tex references.bib references-local.bib sections/*.tex
 	@echo "==> First LaTeX pass..."
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 	@echo "==> Running Biber..."
@@ -25,16 +21,10 @@ $(MAIN).pdf: $(MAIN).tex references.bib
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 	@echo "==> Build complete: $(MAIN).pdf"
 
-# Quick build (single pass, no bibliography update)
-quick: $(MAIN).tex
+quick: $(MAIN).tex sections/*.tex
 	@echo "==> Quick build (single pass)..."
 	$(LATEX) -output-directory=$(OUTDIR) $(MAIN).tex
 
-# Use LuaLaTeX instead of XeLaTeX (not recommended - breaks PDF text layer)
-lualatex: LATEX = lualatex
-lualatex: all
-
-# Clean build artifacts (keep PDF)
 clean:
 	@echo "==> Cleaning build artifacts..."
 	rm -f $(MAIN).aux $(MAIN).bbl $(MAIN).bcf $(MAIN).blg $(MAIN).log
@@ -42,30 +32,20 @@ clean:
 	rm -f $(MAIN).fls $(MAIN).synctex.gz
 	@echo "==> Clean complete"
 
-# Clean everything including PDF
 distclean: clean
 	@echo "==> Removing PDF..."
 	rm -f $(MAIN).pdf
 	@echo "==> Deep clean complete"
 
-# Open PDF viewer (macOS)
 view: $(MAIN).pdf
 	@echo "==> Opening PDF..."
 	open $(MAIN).pdf
 
-# Test the Python specification
-test:
-	@echo "==> Testing theoretical specification..."
-	cd src && python typology.py
-
-# Show available targets
 help:
 	@echo "Available targets:"
-	@echo "  make          - Build PDF with full bibliography (default)"
-	@echo "  make quick    - Quick build (single pass, no bib update)"
-	@echo "  make lualatex - Build using LuaLaTeX (not recommended)"
-	@echo "  make clean    - Remove build artifacts (keep PDF)"
-	@echo "  make distclean- Remove everything including PDF"
-	@echo "  make view     - Open PDF (macOS only)"
-	@echo "  make test     - Run Python specification tests"
-	@echo "  make help     - Show this help message"
+	@echo "  make           - Build PDF with full bibliography (default)"
+	@echo "  make quick     - Quick build (single pass, no bib update)"
+	@echo "  make clean     - Remove build artifacts (keep PDF)"
+	@echo "  make distclean - Remove everything including PDF"
+	@echo "  make view      - Open PDF (macOS only)"
+	@echo "  make help      - Show this help message"

@@ -1,157 +1,84 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides project-specific guidance for Brett Reynolds's methodological paper:
 
-## Project Overview
+**Expert Grammaticality Judges Are Evaluators, Not Participants: Grammaticality Judgments, Rater Roles, and Human-Subjects Review**
 
-This is an academic research paper titled "Expert Grammaticality Judges Are Evaluators, Not Participants" by Brett Reynolds.
+## Project Role
+
+This is a methodological and ethics-facing paper about the evidential role of expert grammaticality judges.
+
+Core claim:
+
+Expert judges should be classified by role, not by the mere fact that a human makes a judgment. If the design studies the judge's responses, background, processing, social identity, or judgment distribution, the judge is a participant. If the design uses professional expertise to assess linguistic materials, the judge is an evaluator.
+
+Guiding analogy:
+
+Essay scorers and psychometric raters can be fallible, biased, trained, calibrated, blinded, and adjudicated. Those facts make them part of the measurement procedure, not automatically participants in the same sense as the students or performances being measured.
 
 ## Build System
 
-This LaTeX project requires **XeLaTeX** (not pdfLaTeX) due to the Charis SIL font requirement.
-
-**Avoid LuaLaTeX** – it tends to run words together in the underlying PDF text layer, breaking copy-paste and accessibility.
-
-### Compilation Commands
+Use XeLaTeX, not pdfLaTeX or LuaLaTeX.
 
 ```bash
-# Full build sequence
+make
+make quick
+make clean
+```
+
+Manual full build:
+
+```bash
 xelatex main.tex
 biber main
 xelatex main.tex
 xelatex main.tex
-
-# Or use automated build
-make              # Full build
-make quick        # Single pass
-make clean        # Clean artifacts
 ```
-
-The multiple runs are necessary to resolve all cross-references and citations.
 
 ## File Structure
 
-```
+```text
 Expert_Grammaticality_Judges_Are_Evaluators_Not_Participants/
-├── main.tex                  # Main document
-├── references.bib            # Bibliography
-├── .house-style/             # House style snapshot
-│   ├── preamble.tex         # LaTeX preamble
-│   └── style-rules.yaml     # Style conventions
-├── Makefile                  # Build automation
-├── CLAUDE.md                 # This file
-├── AGENTS.md                 # Synced with this file
-└── GEMINI.md                 # Synced with this file
+|-- main.tex
+|-- sections/
+|-- notes/
+|-- docs/
+|-- submission/
+|-- STATUS.md
+|-- DECISIONS.md
+|-- README.md
+|-- references.bib          # symlink to ../../.house-style/references.bib
+|-- references-local.bib    # verified project-specific additions only
+`-- .house-style/           # symlinks to central house-style files
 ```
 
 ## House Style
 
-This project uses Brett Reynolds house style (see `.house-style/style-rules.yaml`).
+The project points to central house style by symlink. Follow `.house-style/style-rules.yaml` and the workspace rules.
 
-### Key LaTeX Conventions
+Important local emphases:
 
-**Terms, Mentions, Quotations:**
-- Use `\term{}` for terms/concepts (small caps): `\term{definiteness}`
-- Use `\mention{}` for mentions/forms (italics): `\mention{the}`
-- Use `\olang{}` for object language (italics): `\olang{der Hund}`
-- Use `\enquote{}` for quotations: `\enquote{actual quote}`
-- Never use raw quotes for mention
+- Do not write this as legal advice. Local REB/HREB policy, journal policy, and institutional policy still control.
+- Keep the participant/evaluator distinction role-based, not status-based.
+- Do not imply that native-speaker status alone makes someone an expert evaluator.
+- Do not defend unreported intuition. The point is transparent expert evaluation, not private authority.
+- Mark explanatory levels explicitly: ethics/institutional review, measurement procedure, linguistic evidence, and linguistic theory are different levels.
+- Preserve the boundary cases where judges really are participants.
+- Keep visible keywords and `pdfkeywords` synchronized.
 
-**Cross-linguistic Notation:**
-- Cross-linguistic: `\textsc{subject}\crossmark`
-- Language-specific: `\textsc{subject}\textsubscript{eng}`
+## Citation Discipline
 
-**Dashes:**
-- Parenthetical: `foo~-- bar~-- baz` (en dash with spaces)
-- Ranges: `2001--2025` (en dash, no spaces)
-- Compounds: `corpus-based` (hyphen)
+Do not add citations or BibTeX entries from memory. Use the central bibliography when the key already exists. Add to `references-local.bib` only after source verification.
 
-**Citations:**
-- Parenthetical: `\citep{key}`
-- Textual: `\textcite{key}`
+Before citing:
 
-**Citations and BibTeX (LAW):**
-- Citations and BibTeX entries must NEVER be placeholders
-- Citations must NEVER be generated from training data
-- LLMs MUST browse the web to find DOIs and verify bibliographic data
-- Every citation must be confirmed against an authoritative source
-- If you cannot verify a citation, say so. Do not guess. Do not fabricate.
+- verify human-participants definitions against TCPS 2 or the relevant local policy;
+- verify any Humber/HREB claim against local documentation;
+- verify educational/psychometric rater claims against scoring or measurement sources;
+- verify grammaticality-judgment methodology claims against the relevant linguistics literature.
 
-### Writing Style
+Keep candidate source work in `notes/source-verification.md` until verified.
 
-**Preferred:**
-- Use contractions (don't, won't)
-- Keep paragraphs ~60 words, max 100
-- Direct verbs and short clauses
-- Concrete before abstract
+## Current State
 
-**Avoid:**
-- Throat-clearers: "It is important to note that..."
-- `\paragraph{}` headings (use topic sentences)
-- Bold labels in prose
-- Hackneyed adverbs: moreover, furthermore
-
-**Document Structure:**
-- Keep keywords by default: maintain the visible keyword line after the abstract and keep `pdfkeywords` metadata in `\hypersetup{}` in sync
-- Put `\clearpage` before `\printbibliography`
-- Use `\section{}` and `\subsection{}` only
-- Avoid bullet points for arguments (use prose)
-
-**Explanation-Level Discipline:**
-- Define the target behavior, judgment, category, model output, or social fact before proposing mechanisms.
-- Mark the explanatory level: behavioral, algorithmic, social-practical, corpus-distributional, model-internal, neural/biological, institutional, or normative.
-- Avoid filler verbs (`underlies`, `involves`, `regulates`, `drives`, `encodes`, `represents`) unless the mechanism, test, or level-specific meaning is explicit.
-- Avoid mereological slippage: neurons do not understand, embeddings do not mean, fields do not decide, grammars do not judge.
-- Treat internal maps (connectomes, activations, vector spaces, corpus inventories) as resources for testing hypotheses, not as explanations by themselves.
-- Use ordinal markers: "first," "second," "third"
-
-**Examples (gb4e):**
-```latex
-\ea\label{ex:example}
-\textit{Example sentence.}
-\z
-```
-
-## Common Tasks
-
-**Adding References:**
-1. Add entry to `references.bib`
-2. Protect capitals: `title = {The {Cambridge} Grammar...}`
-3. Use `\textcite{key}` or `\citep{key}`
-
-**Building:**
-```bash
-make              # Full build
-make quick        # Fast build
-make clean        # Clean up
-```
-
-**Git Workflow:**
-- Pre-commit hook keeps CLAUDE.md, AGENTS.md, GEMINI.md synced
-- Commit often with meaningful messages
-- Build before committing to ensure no LaTeX errors
-
-## Multi-Agent Dispatch (MANDATORY)
-
-**Before dispatching multiple agents, ALWAYS ask Brett:**
-
-1. **Which model(s)?** Options: Claude, Codex, Gemini, Copilot
-   - Codex is often best for Brett's work
-   - Claude and Gemini both have 1M token context windows
-   - Different models have different strengths
-
-2. **Redundant outputs?** Should multiple models tackle the same task?
-   - Useful for judgment calls (e.g., "Should I add this figure?")
-   - Not needed for factual tasks
-
-### CLI Command Patterns
-
-| CLI | Command | Notes |
-|-----|---------|-------|
-| **Codex** | `codex -p 'prompt' > output.txt &` | Include "Read [PATH] first" in prompt |
-| **Gemini** | `cat file.tex \| gemini --yolo -o text 'prompt'` | Must pipe content (file reading broken in YOLO) |
-| **Copilot** | `copilot -p 'prompt' > output.txt &` | Fast; add `--allow-all-tools` for file ops |
-
-**Token limits:** Claude 1M = Gemini 1M+ > Codex
-
-See portfolio `CLAUDE.md` or `HPC book/.agent/workflows/multi-agent-review.md` for full patterns.
+Read `STATUS.md` and `DECISIONS.md` at the start of a session. Log durable decisions to `DECISIONS.md` as they happen.
