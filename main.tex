@@ -9,17 +9,24 @@
 }
 
 \title{Expert Grammaticality Judges as Evaluators, Not Participants\\
-{\large Grammaticality Judgments, Rater Roles, and Human-Subjects Review}}
-\author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
-\thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
-Humber Polytechnic \& University of Toronto}
-\date{\today}
+{\large Grammaticality Judgments, Rater Roles, and Research Ethics Review}}
+% Anonymized review copy: compile with  xelatex "\def\blind{}\input{main.tex}"
+\ifdefined\blind
+  \hypersetup{pdfauthor={}}
+  \author{\textit{Author name and affiliation withheld for anonymous review}}
+  \date{}
+\else
+  \author{Brett Reynolds \orcidlink{0000-0003-0073-7195}%
+  \thanks{Contact: \href{mailto:brett.reynolds@humber.ca}{brett.reynolds@humber.ca}}\\
+  Humber Polytechnic \& University of Toronto}
+  \date{\today}
+\fi
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-A grammaticality judgment is always a human act, but it isn't always participant data. Whether the supplier is a participant or an evaluator should turn on what the judgment is evidence of: a person (reactions, processing, dialect, or response distribution) or an object (an item's status under a stated standard). There the judge is closer to an essay scorer or prescriptive annotator than to a survey respondent, and the work's systematic, reliability-checked character marks it as measurement, not a study of the judges. The United States Common Rule draws the line in its \enquote{about whom} definition of a human subject; Canada's Tri-Council Policy Statement (TCPS 2) reaches it by focus of inquiry. The proposal doesn't loosen ethics review but routes it: participant protections where persons are the object, measurement and labour standards where judgment is the instrument. It neither licenses private intuition nor erases the cases where judges are participants.
+A grammaticality judgment is always a human act, but it isn't always participant data. Whether the supplier is a participant or an evaluator should turn on what the judgment is evidence of: a person (reactions, processing, or dialect) or an object (an item's status under a stated standard). The role isn't only an ethical classification; it fixes which generalization the judgment licenses, over speakers or items. For the object, the judge resembles an essay scorer or prescriptive annotator more than a survey respondent, and the work's systematic, reliability-checked character marks it as measurement, not a study of the judges. Canada's Tri-Council Policy Statement (TCPS 2) reaches the line by focus of inquiry; the United States Common Rule states it in its \enquote{about whom} definition of a human subject. The proposal routes ethics review rather than loosening it, and neither licenses private intuition nor erases the cases where judges are participants.
 \end{abstract}
 
 \noindent\textbf{Keywords:} grammaticality judgments; acceptability judgments; research ethics; human-subjects review; rater reliability
@@ -33,9 +40,11 @@ A grammaticality judgment is always a human act, but it isn't always participant
 \input{sections/07-reporting-and-ethics}
 \input{sections/08-conclusion}
 
+\ifdefined\blind\else
 \section*{Acknowledgements}
 
 The large language models GPT-5.5 and Claude Opus 4.8 served as drafting and editing aids throughout the preparation of this paper. I am responsible for all theoretical claims, arguments, errors, and interpretive choices.
+\fi
 
 \clearpage
 \printbibliography
