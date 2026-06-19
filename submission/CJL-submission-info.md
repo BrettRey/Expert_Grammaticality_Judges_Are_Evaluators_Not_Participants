@@ -28,7 +28,7 @@ grammaticality judgments; acceptability judgments; research ethics review; rater
 - ORCID: 0000-0003-0073-7195
 - Corresponding author: yes
 
-## AI-use disclosure (Cambridge Research Publishing Ethics — paste into the portal's disclosure field, and it is also in the non-anonymized manuscript)
+## AI-use disclosure (Cambridge Research Publishing Ethics — appears in the manuscript itself, in both the anonymized review file and the non-anonymized version, per CJL guidance that the AI statement belongs in the manuscript; also paste into the portal's disclosure field if one is provided)
 The large language models Claude (Anthropic; Opus 4.8) and GPT-5.5 (OpenAI), used as released and accessed through their providers' web and programming interfaces in June 2026, served as drafting and editing aids. I used them to draft and revise prose, to develop and stress-test the argument and its counterarguments, and to propose candidate sources. Every source, quotation, and citation was verified against the primary document before inclusion; no bibliographic content was taken from model output unverified. I conceived the thesis, performed all verification, and am responsible for all claims, arguments, errors, and interpretive choices. I declare no competing interest arising from the tools' use.
 
 ## Cover-letter draft (edit to taste)
@@ -42,7 +42,7 @@ Brett Reynolds
 ---
 
 ## Files to upload
-- **`submission/manuscript-anonymized-for-review.pdf`** — the anonymized review file (11 pp.). Regenerate with the commands below if the source changes. Verified: no name, affiliation, contact, date, or AI-tools section in the body, and no Author field in the PDF metadata.
+- **`submission/manuscript-anonymized-for-review.pdf`** — the anonymized review file (11 pp.). Regenerate with the commands below if the source changes. Verified: no name, affiliation, contact, or date, and no Author field in the PDF metadata. The "Use of AI tools" declaration is retained (CJL requires the AI statement in the manuscript itself; it names only the tools, not the author, so it is anonymization-safe).
 - **`submission/title-page.pdf`** — separate NON-anonymized title page. CJL requires this as an accompanying document: "your full name and contact information, as well as your academic affiliation … and status (e.g., professor, doctoral student)," plus a confirmation the work is not published elsewhere. **The academic-status line still needs confirming** before submission. Regenerate: `xelatex title-page.tex`, then `mv title-page.pdf submission/`.
 - **LaTeX source — supply on acceptance, not at initial submission.** CJL's "Preparing your materials" page specifies formatting (margins, spacing, font) but is silent on manuscript file format and when source is due; a review PDF is the norm and editable source goes to production after acceptance. If you want certainty, the editorial office (editors@cla-acl.ca) is the authority. On acceptance, supply all files (`main.tex`, `sections/`, `references.bib` + `references-local.bib`, the house-style preamble).
 
