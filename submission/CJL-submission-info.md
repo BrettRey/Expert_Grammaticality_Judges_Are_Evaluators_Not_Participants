@@ -43,7 +43,8 @@ Brett Reynolds
 
 ## Files to upload
 - **`submission/manuscript-anonymized-for-review.pdf`** — the anonymized review file (11 pp.). Regenerate with the commands below if the source changes. Verified: no name, affiliation, contact, date, or AI-tools section in the body, and no Author field in the PDF metadata.
-- (On acceptance) LaTeX source — CJL accepts LaTeX; supply all files (`main.tex`, `sections/`, `references.bib` + `references-local.bib`, the house-style preamble).
+- **`submission/title-page.pdf`** — separate NON-anonymized title page. CJL requires this as an accompanying document: "your full name and contact information, as well as your academic affiliation … and status (e.g., professor, doctoral student)," plus a confirmation the work is not published elsewhere. **The academic-status line still needs confirming** before submission. Regenerate: `xelatex title-page.tex`, then `mv title-page.pdf submission/`.
+- **LaTeX source — supply on acceptance, not at initial submission.** CJL's "Preparing your materials" page specifies formatting (margins, spacing, font) but is silent on manuscript file format and when source is due; a review PDF is the norm and editable source goes to production after acceptance. If you want certainty, the editorial office (editors@cla-acl.ca) is the authority. On acceptance, supply all files (`main.tex`, `sections/`, `references.bib` + `references-local.bib`, the house-style preamble).
 
 ### How to regenerate the anonymized PDF
     xelatex -jobname=main-blind "\def\blind{}\input{main.tex}"
