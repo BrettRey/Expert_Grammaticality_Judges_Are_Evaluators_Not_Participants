@@ -7,7 +7,7 @@
 
 ## Working Title
 
-*Expert Grammaticality Judges Are Evaluators, Not Participants: Grammaticality Judgments, Rater Roles, and Human-Subjects Review*
+*Expert Grammaticality Judges as Evaluators, Not Participants: Grammaticality Judgments, Rater Roles, and Human-Subjects Review*
 
 ## Current Frame
 
