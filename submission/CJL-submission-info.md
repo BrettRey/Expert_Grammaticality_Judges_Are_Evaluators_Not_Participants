@@ -4,6 +4,8 @@ Target: *Canadian Journal of Linguistics / Revue canadienne de linguistique* (Ca
 Portal: ScholarOne ManuscriptCentral — https://mc.manuscriptcentral.com/cjl-rcl
 **Article** (not a squib). Double-anonymized review.
 
+> **SUBMITTED 19 June 2026 — Manuscript ID CJLRCL-2026-0043.** Under review. The fields below are retained for the record and for any revise-and-resubmit.
+
 ---
 
 ## Article type
