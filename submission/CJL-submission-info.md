@@ -16,10 +16,10 @@ Expert Grammaticality Judges as Evaluators, Not Participants: Grammaticality Jud
 Grammaticality Judges as Evaluators, Not Participants
 
 ## Abstract (150 words, no references — paste as plain text)
-A grammaticality judgment is always a human act, but it isn't always participant data. Whether the supplier is a participant or an evaluator should turn on what the judgment is evidence of: a person (reactions, processing, or dialect) or an object (an item's status under a stated standard). The role isn't only an ethical classification; it fixes which generalization the judgment licenses, over speakers or items. For the object, the judge resembles an essay scorer or prescriptive annotator more than a survey respondent, and the work's systematic, reliability-checked character marks it as measurement, not a study of the judges. Canada's Tri-Council Policy Statement (TCPS 2) reaches the line by focus of inquiry; the United States Common Rule states it in its "about whom" definition of a human subject. The proposal routes ethics review rather than loosening it, and neither licenses private intuition nor erases the cases where judges are participants.
+A grammaticality judgment is always a human act, but it isn't always participant data. Whether the person who supplies one is a participant or an evaluator should turn on what the judgment is evidence of: a person (reactions, processing, or dialect) or an object (an item's status under a stated standard). The role isn't only an ethical classification; it also fixes the generalization a judgment licenses, over speakers or items. In the object case, the judge resembles an essay scorer or prescriptive annotator more than a survey respondent, and systematic, reliability-checked procedures mark measurement rather than a study of the judges. Canada's Tri-Council Policy Statement (TCPS 2) reaches the distinction by focus of inquiry; the United States Common Rule states it through its "about whom" definition. The proposal routes ethics review rather than loosening it: it neither licenses private intuition nor erases the cases where judges are participants.
 
 ## Keywords (exactly five)
-grammaticality judgments; acceptability judgments; research ethics; human-subjects review; rater reliability
+grammaticality judgments; acceptability judgments; research ethics review; rater reliability; TCPS 2
 
 ## Author (NOT in the anonymized manuscript — enter in the portal only)
 - Name: Brett Reynolds
@@ -42,14 +42,15 @@ Brett Reynolds
 ---
 
 ## Files to upload
-- **Anonymized manuscript (PDF) for review** — produced from the LaTeX source in blind mode (see below). Contains no name, affiliation, contact, date, or acknowledgements/AI section; PDF metadata author is scrubbed.
+- **`submission/manuscript-anonymized-for-review.pdf`** — the anonymized review file (11 pp.). Regenerate with the commands below if the source changes. Verified: no name, affiliation, contact, date, or AI-tools section in the body, and no Author field in the PDF metadata.
 - (On acceptance) LaTeX source — CJL accepts LaTeX; supply all files (`main.tex`, `sections/`, `references.bib` + `references-local.bib`, the house-style preamble).
 
-### How to produce the anonymized PDF
-    xelatex "\def\blind{}\input{main.tex}"
-    biber main
-    xelatex "\def\blind{}\input{main.tex}"
-    xelatex "\def\blind{}\input{main.tex}"
+### How to regenerate the anonymized PDF
+    xelatex -jobname=main-blind "\def\blind{}\input{main.tex}"
+    biber main-blind
+    xelatex -jobname=main-blind "\def\blind{}\input{main.tex}"
+    xelatex -jobname=main-blind "\def\blind{}\input{main.tex}"
+    mv main-blind.pdf submission/manuscript-anonymized-for-review.pdf
 (The normal `make` build produces the non-anonymized version with the author block and AI-tools section.)
 
 ## Pre-submission checklist
@@ -59,6 +60,17 @@ Brett Reynolds
 - [x] Anonymized review file (blind mode); no identifying self-citations (CGEL cited as Huddleston & Pullum 2002, not the author-coauthored 2021 edition)
 - [x] AI use disclosed per Cambridge guidance
 - [ ] Confirm whether your institution (Humber / U of T) has a Cambridge Read-and-Publish agreement covering the APC, so the published version is open access
+
+## Portal statements (ScholarOne usually asks for these)
+- **Funding:** [confirm] This research received no specific grant from any funding agency, commercial, or not-for-profit sector.
+- **Competing interests:** The author declares none. (Use of AI tools is disclosed above.)
+- **Data availability:** Not applicable. The article is conceptual and presents no new empirical data; all linguistic examples and policy texts cited are from published or publicly available sources.
+- **Ethics approval:** Not applicable. The article involved no research with human participants. (Its argument concerns when such review is and isn't triggered.)
+- **AI tools:** disclosed (see above).
+
+## At proof stage
+- Re-check the AI model strings (GPT-5.5, Claude Opus 4.8) — model names date fast.
+- "A study in this journal" (§4, the Loss & Wicklund example) presumes CJL; if the paper moves venues, change to "A study in the *Canadian Journal of Linguistics*."
 
 ## On acceptance (not needed for first submission)
 - Convert references and in-text citations to CJL house style (author–date, *and* not `&`, no `et al.` and full first names in the reference list, sentence-case article titles, en-dash page ranges) — swap the biblatex style or use the CJL LaTeX template.
